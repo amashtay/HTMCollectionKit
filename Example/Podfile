@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '15.0'
+
+target 'HTMCollectionKit_Example' do
+  pod 'HTMCollectionKit', :path => '../'
+
+  target 'HTMCollectionKit_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

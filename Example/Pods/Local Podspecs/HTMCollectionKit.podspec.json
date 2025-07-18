@@ -1,0 +1,22 @@
+{
+  "name": "HTMCollectionKit",
+  "version": "0.1.0",
+  "summary": "A short description of HTMCollectionKit.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/Aleksandr Tonkhonoev/HTMCollectionKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Hulio Trabajo Montez": "amashtay@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/amashtay/HTMCollectionKit",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "15.0"
+  },
+  "source_files": "HTMCollectionKit/Classes/**/*"
+}

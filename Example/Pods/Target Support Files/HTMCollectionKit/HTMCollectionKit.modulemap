@@ -1,0 +1,6 @@
+framework module HTMCollectionKit {
+  umbrella header "HTMCollectionKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

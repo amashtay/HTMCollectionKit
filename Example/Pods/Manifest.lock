@@ -1,0 +1,16 @@
+PODS:
+  - HTMCollectionKit (0.1.0)
+
+DEPENDENCIES:
+  - HTMCollectionKit (from `../`)
+
+EXTERNAL SOURCES:
+  HTMCollectionKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  HTMCollectionKit: 24062d1477f3bc3312226075422f79d0f4649529
+
+PODFILE CHECKSUM: 6976e0168fd375015ab45b5849e7003687391bbb
+
+COCOAPODS: 1.16.2
