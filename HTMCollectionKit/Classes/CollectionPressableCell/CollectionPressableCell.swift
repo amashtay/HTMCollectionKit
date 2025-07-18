@@ -2,7 +2,7 @@
 //  CollectionPressableCell.swift
 //  MRKT
 //
-//  Created by amashtayon 22.06.2025.
+//  Created by amashtay on 22.06.2025.
 //
 
 import UIKit

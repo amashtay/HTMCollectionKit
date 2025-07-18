@@ -2,7 +2,7 @@
 //  CollectionLayoutFactory.swift
 //  HTMCollectionKit
 //
-//  Created by amashtayon 08.07.2025.
+//  Created by amashtay on 08.07.2025.
 //
 
 public final class CollectionLayoutFactory: CollectionLayoutFactoryProtocol {
