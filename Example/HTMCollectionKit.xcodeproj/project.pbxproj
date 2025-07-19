@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1EB5EA642E2C457C00123978 /* TitleHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB5EA632E2C457300123978 /* TitleHeader.swift */; };
 		4C27E71245D2A8115428D084 /* Pods_HTMCollectionKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5700B20C96BD545AB8E3930 /* Pods_HTMCollectionKit_Example.framework */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
@@ -59,6 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1EB5EA632E2C457300123978 /* TitleHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleHeader.swift; sourceTree = "<group>"; };
 		3DF9B6C86ADB5BAE19FD2BE5 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		3F14A3A417BCE8063361B8AF /* Pods_HTMCollectionKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HTMCollectionKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* HTMCollectionKit_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HTMCollectionKit_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +142,14 @@
 				EF2C6CE0493F83C048520BD3 /* Pods-HTMCollectionKit_Tests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		1EB5EA622E2C456E00123978 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				1EB5EA632E2C457300123978 /* TitleHeader.swift */,
+			);
+			path = Header;
 			sourceTree = "<group>";
 		};
 		607FACC71AFB9204008FA782 = {
@@ -412,6 +422,7 @@
 		EE49DCB32E2A7154006B0A2D /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				1EB5EA622E2C456E00123978 /* Header */,
 				EE49DCA22E2A7154006B0A2D /* Cells */,
 				EE49DCA42E2A7154006B0A2D /* MainViewData */,
 				EE49DCA62E2A7154006B0A2D /* Model */,
@@ -621,6 +632,7 @@
 				EE49DCB62E2A7154006B0A2D /* MainViewDataFactoryProtocol.swift in Sources */,
 				EE49DCB72E2A7154006B0A2D /* MainViewIO.swift in Sources */,
 				EE49DCB82E2A7154006B0A2D /* AdvertCardCellItem.swift in Sources */,
+				1EB5EA642E2C457C00123978 /* TitleHeader.swift in Sources */,
 				EE49DCB92E2A7154006B0A2D /* MainViewDataSource.swift in Sources */,
 				EE49DCBA2E2A7154006B0A2D /* MainInteractor.swift in Sources */,
 				EE49DCBB2E2A7154006B0A2D /* MainViewDataFactory.swift in Sources */,

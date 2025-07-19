@@ -21,5 +21,8 @@ public enum CollectionLayoutSectionType {
 }
 
 public protocol CollectionLayoutFactoryProtocol: AnyObject {
-    func createLayoutSection(type: CollectionLayoutSectionType) -> NSCollectionLayoutSection?
+    func createLayoutSection(
+        type: CollectionLayoutSectionType,
+        isHeaderHidden: Bool
+    ) -> NSCollectionLayoutSection?
 }

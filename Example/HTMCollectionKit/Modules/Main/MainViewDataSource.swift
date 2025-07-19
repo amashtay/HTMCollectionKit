@@ -45,6 +45,28 @@ final class MainViewDataSource: UICollectionViewDiffableDataSource<MainViewSecti
         }
         
         registerCells(collectionView: collectionView)
+        registerSupplementaryItems(collectionView: collectionView)
+    }
+    
+    override func collectionView(
+        _ collectionView: UICollectionView,
+        viewForSupplementaryElementOfKind kind: String,
+        at indexPath: IndexPath
+    ) -> UICollectionReusableView {
+        guard kind == UICollectionElementKindSectionHeader,
+              let section = self.sectionIdentifier(for: indexPath.section),
+              let header = collectionView.dequeueReusableSupplementaryView(
+                  ofKind: kind,
+                  withReuseIdentifier: TitleHeader.reuseId,
+                  for: indexPath
+              ) as? TitleHeader
+        else {
+            return UICollectionReusableView()
+        }
+
+        header.configure(title: section.title ?? "")
+        
+        return header
     }
     
     // MARK: Internal
@@ -67,5 +89,13 @@ final class MainViewDataSource: UICollectionViewDiffableDataSource<MainViewSecti
         collectionView.register(ReviewCell.self, forCellWithReuseIdentifier: ReviewCell.cellReuseId)
         collectionView.register(DescriptionCell.self, forCellWithReuseIdentifier: DescriptionCell.cellReuseId)
         collectionView.register(AdvertCardCell.self, forCellWithReuseIdentifier: AdvertCardCell.cellReuseId)
+    }
+    
+    private func registerSupplementaryItems(collectionView: UICollectionView) {
+        collectionView.register(
+            TitleHeader.self,
+            forSupplementaryViewOfKind: UICollectionElementKindSectionHeader,
+            withReuseIdentifier: TitleHeader.reuseId
+        )
     }
 }

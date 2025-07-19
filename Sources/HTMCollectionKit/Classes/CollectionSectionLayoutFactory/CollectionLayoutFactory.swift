@@ -12,18 +12,23 @@ public final class CollectionLayoutFactory: CollectionLayoutFactoryProtocol {
     public init() {}
     
     // MARK: CollectionLayoutFactoryProtocol
-    public func createLayoutSection(type: CollectionLayoutSectionType) -> NSCollectionLayoutSection? {
+    public func createLayoutSection(
+        type: CollectionLayoutSectionType,
+        isHeaderHidden: Bool
+    ) -> NSCollectionLayoutSection? {
         switch type {
         case let .grid(columnsCount, customSpacing, customItemHeight):
             createGridLayoutSection(
                 columnsCount: columnsCount,
                 customInterItemSpacing: customSpacing,
-                customItemHeight: customItemHeight
+                customItemHeight: customItemHeight,
+                isHeaderHidden: isHeaderHidden
             )
         case let .verticalList(customItemHeight):
             createGridLayoutSection(
                 columnsCount: 1,
-                customItemHeight: customItemHeight
+                customItemHeight: customItemHeight,
+                isHeaderHidden: isHeaderHidden
             )
         case let .horizontalList(customItemWidth, customItemHeight):
             createHorizontalListLayoutSection(
@@ -44,7 +49,8 @@ public final class CollectionLayoutFactory: CollectionLayoutFactoryProtocol {
     private func createGridLayoutSection(
         columnsCount: Int = 1,
         customInterItemSpacing: CGFloat? = nil,
-        customItemHeight: CustomItemDimensionSize? = nil
+        customItemHeight: CustomItemDimensionSize? = nil,
+        isHeaderHidden: Bool
     ) -> NSCollectionLayoutSection {
         let itemWidthFraction: NSCollectionLayoutDimension = .fractionalWidth(1.0 / CGFloat(columnsCount))
         let groupWidthFraction: NSCollectionLayoutDimension = .fractionalWidth(1.0)
@@ -83,6 +89,9 @@ public final class CollectionLayoutFactory: CollectionLayoutFactoryProtocol {
         )
         group.interItemSpacing = .fixed(customInterItemSpacing ?? 4.0)
         let section = NSCollectionLayoutSection(group: group)
+        if !isHeaderHidden {
+            section.boundarySupplementaryItems = [createHeaderLayout()]
+        }
         return section
     }
     
@@ -146,5 +155,20 @@ public final class CollectionLayoutFactory: CollectionLayoutFactoryProtocol {
         section.orthogonalScrollingBehavior = orthogonalScrollingBehavior
 
         return section
+    }
+    
+    private func createHeaderLayout() -> NSCollectionLayoutBoundarySupplementaryItem {
+        let headerSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .estimated(44.0)
+        )
+
+        let header = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerSize,
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .top
+        )
+        
+        return header
     }
 }

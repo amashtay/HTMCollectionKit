@@ -95,10 +95,15 @@ private extension MainViewController {
             guard let self, sectionIndex < viewData.sections.count else { return nil }
             
             let layoutSection: NSCollectionLayoutSection?
-            let sectionViewModel = viewData.sections[sectionIndex]
-            switch sectionViewModel.type {
+            let sectionViewData = viewData.sections[sectionIndex]
+            let isHeaderHidden = sectionViewData.title?.isEmpty ?? true
+            
+            switch sectionViewData.type {
             case .description:
-                layoutSection = collectionLayoutFactory.createLayoutSection(type: .verticalList())
+                layoutSection = collectionLayoutFactory.createLayoutSection(
+                    type: .verticalList(),
+                    isHeaderHidden: isHeaderHidden
+                )
                 layoutSection?.contentInsets = .init(top: 16.0, leading: 8.0, bottom: 8.0, trailing: 8.0)
             case .itemsGrid:
                 layoutSection = collectionLayoutFactory
@@ -106,7 +111,8 @@ private extension MainViewController {
                         type: .grid(
                             columnsCount: 2,
                             customInterItemSpacing: 8.0
-                        )
+                        ),
+                        isHeaderHidden: isHeaderHidden
                     )
                 layoutSection?.contentInsets = .init(top: 16.0, leading: 8.0, bottom: 8.0, trailing: 8.0)
                 layoutSection?.interGroupSpacing = 8.0
@@ -115,12 +121,16 @@ private extension MainViewController {
                     type: .horizontalPagingList(
                         customItemWidth: .flexible(0.85),
                         customItemHeight: .absolute(250.0)
-                    )
+                    ),
+                    isHeaderHidden: isHeaderHidden
                 )
                 layoutSection?.contentInsets = .init(top: 16.0, leading: 8.0, bottom: 8.0, trailing: 8.0)
                 layoutSection?.interGroupSpacing = 4.0
             case .reviews:
-                layoutSection = collectionLayoutFactory.createLayoutSection(type: .verticalList())
+                layoutSection = collectionLayoutFactory.createLayoutSection(
+                    type: .verticalList(),
+                    isHeaderHidden: isHeaderHidden
+                )
                 layoutSection?.contentInsets = .init(top: 16.0, leading: 8.0, bottom: 8.0, trailing: 8.0)
                 layoutSection?.interGroupSpacing = 8.0
             }
