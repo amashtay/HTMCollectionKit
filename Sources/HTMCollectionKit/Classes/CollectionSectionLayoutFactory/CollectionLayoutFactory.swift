@@ -11,7 +11,8 @@ public final class CollectionLayoutFactory: CollectionLayoutFactoryProtocol {
     
     public init() {}
     
-    // MARK: CollectionLayoutFactoryProtocol
+    // MARK: - CollectionLayoutFactoryProtocol
+    
     public func createLayoutSection(
         type: CollectionLayoutSectionType,
         isHeaderHidden: Bool
@@ -34,18 +35,21 @@ public final class CollectionLayoutFactory: CollectionLayoutFactoryProtocol {
             createHorizontalListLayoutSection(
                 customItemWidth: customItemWidth,
                 customItemHeight: customItemHeight,
-                orthogonalScrollingBehavior: .continuous
+                orthogonalScrollingBehavior: .continuous,
+                isHeaderHidden: isHeaderHidden
             )
         case let .horizontalPagingList(customItemWidth, customItemHeight):
             createHorizontalListLayoutSection(
                 customItemWidth: customItemWidth,
                 customItemHeight: customItemHeight,
-                orthogonalScrollingBehavior: .groupPaging
+                orthogonalScrollingBehavior: .groupPaging,
+                isHeaderHidden: isHeaderHidden
             )
         }
     }
     
-    // MARK: Private    
+    // MARK: - Private
+    
     private func createGridLayoutSection(
         columnsCount: Int = 1,
         customInterItemSpacing: CGFloat? = nil,
@@ -98,7 +102,8 @@ public final class CollectionLayoutFactory: CollectionLayoutFactoryProtocol {
     private func createHorizontalListLayoutSection(
         customItemWidth: CustomItemDimensionSize? = nil,
         customItemHeight: CustomItemDimensionSize? = nil,
-        orthogonalScrollingBehavior: UICollectionLayoutSectionOrthogonalScrollingBehavior
+        orthogonalScrollingBehavior: UICollectionLayoutSectionOrthogonalScrollingBehavior,
+        isHeaderHidden: Bool
     ) -> NSCollectionLayoutSection {
         let itemWidthFraction: NSCollectionLayoutDimension
         let itemHeightFraction: NSCollectionLayoutDimension
@@ -153,7 +158,10 @@ public final class CollectionLayoutFactory: CollectionLayoutFactoryProtocol {
         let section = NSCollectionLayoutSection(group: group)
         section.interGroupSpacing = 8.0
         section.orthogonalScrollingBehavior = orthogonalScrollingBehavior
-
+        if !isHeaderHidden {
+            section.boundarySupplementaryItems = [createHeaderLayout()]
+        }
+        
         return section
     }
     

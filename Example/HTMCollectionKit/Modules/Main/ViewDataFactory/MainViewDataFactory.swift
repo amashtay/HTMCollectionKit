@@ -17,7 +17,7 @@ final class MainViewDataFactory: MainViewDataFactoryProtocol {
             sections: [
                 .init(
                     type: .banners,
-                    title: nil,
+                    title: "ADVERTISEMENTS",
                     items: mapBannersData(
                         banners: model.banners,
                         onItemTouched: onItemTouched
@@ -30,7 +30,7 @@ final class MainViewDataFactory: MainViewDataFactoryProtocol {
                 ),
                 .init(
                     type: .itemsGrid,
-                    title: "LOREM IPSUM",
+                    title: "RECOMMENDED",
                     items: mapRecommendationsData(
                         recommendations: model.recommendations,
                         onItemTouched: onItemTouched
@@ -38,7 +38,7 @@ final class MainViewDataFactory: MainViewDataFactoryProtocol {
                 ),
                 .init(
                     type: .reviews,
-                    title: nil,
+                    title: "REVIEWS",
                     items: mapReviewsData(
                         reviews: model.reviews,
                         onItemTouched: onItemTouched

@@ -104,7 +104,7 @@ private extension MainViewController {
                     type: .verticalList(),
                     isHeaderHidden: isHeaderHidden
                 )
-                layoutSection?.contentInsets = .init(top: 16.0, leading: 8.0, bottom: 8.0, trailing: 8.0)
+                layoutSection?.contentInsets = .init(top: 16.0, leading: 8.0, bottom: 32.0, trailing: 8.0)
             case .itemsGrid:
                 layoutSection = collectionLayoutFactory
                     .createLayoutSection(
@@ -114,7 +114,7 @@ private extension MainViewController {
                         ),
                         isHeaderHidden: isHeaderHidden
                     )
-                layoutSection?.contentInsets = .init(top: 16.0, leading: 8.0, bottom: 8.0, trailing: 8.0)
+                layoutSection?.contentInsets = .init(top: 16.0, leading: 8.0, bottom: 32.0, trailing: 8.0)
                 layoutSection?.interGroupSpacing = 8.0
             case .banners:
                 layoutSection = collectionLayoutFactory.createLayoutSection(
@@ -131,7 +131,7 @@ private extension MainViewController {
                     type: .verticalList(),
                     isHeaderHidden: isHeaderHidden
                 )
-                layoutSection?.contentInsets = .init(top: 16.0, leading: 8.0, bottom: 8.0, trailing: 8.0)
+                layoutSection?.contentInsets = .init(top: 16.0, leading: 8.0, bottom: 32.0, trailing: 8.0)
                 layoutSection?.interGroupSpacing = 8.0
             }
             
