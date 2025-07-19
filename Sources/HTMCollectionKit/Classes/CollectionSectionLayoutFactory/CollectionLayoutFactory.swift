@@ -5,6 +5,8 @@
 //  Created by amashtay on 08.07.2025.
 //
 
+import UIKit
+
 public final class CollectionLayoutFactory: CollectionLayoutFactoryProtocol {
     
     public init() {}

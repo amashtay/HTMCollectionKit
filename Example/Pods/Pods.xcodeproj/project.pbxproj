@@ -9,15 +9,15 @@
 /* Begin PBXBuildFile section */
 		0A931D53FC1748F9764F04DA7C951C15 /* Pods-HTMCollectionKit_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AFA8E750D6ED210E19130F5F5B13DAEC /* Pods-HTMCollectionKit_Example-dummy.m */; };
 		1282AF830BB0BC15FD91DC54B08E73CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 384DDA2CB25005BD6479B5987C619DD4 /* Foundation.framework */; };
-		24A13CEF6864031072742FD42D094277 /* CollectionLayoutFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1934D9E44A24069818FE9261DDF6A3F /* CollectionLayoutFactory.swift */; };
+		24A13CEF6864031072742FD42D094277 /* CollectionLayoutFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F2ABB90896003532B374D91EAE449F /* CollectionLayoutFactory.swift */; };
 		3517433C1A81EBCF7563B32BF819E510 /* Pods-HTMCollectionKit_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6009880876D2910BA3B893609B1EB3D0 /* Pods-HTMCollectionKit_Tests-dummy.m */; };
 		3845A866F557852AB35F9EB4529B4FA2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 384DDA2CB25005BD6479B5987C619DD4 /* Foundation.framework */; };
 		438472EA63505A89119DF40911CC548C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 384DDA2CB25005BD6479B5987C619DD4 /* Foundation.framework */; };
-		5895DE8C6856E2E3E50BDEA0B3F21B42 /* HTMCollectionKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 13F8EC95B64A906408529FB3FA664F1C /* HTMCollectionKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5895DE8C6856E2E3E50BDEA0B3F21B42 /* HTMCollectionKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8EAA895FEAE1F483D81145C86250C200 /* HTMCollectionKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7105AB1F9D88797E23F9E2E0C62E15F4 /* Pods-HTMCollectionKit_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AF3A547E721A82D56686D4AA5FE6577D /* Pods-HTMCollectionKit_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ACBF7CD40472C9BCD747B06505FFDCF3 /* CollectionLayoutFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F77413C2A284058EB2045B1A162B4 /* CollectionLayoutFactoryProtocol.swift */; };
-		CBECE47BAFD7F5ADDA0AA029D37EFA42 /* HTMCollectionKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B061F4AF8EE266F217BB176D7B3DF347 /* HTMCollectionKit-dummy.m */; };
-		F6E29BE20253FBAD1315051DE7AB494A /* CollectionPressableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24BDDCC059A2F4DEE9B6C88D9AC8B1D /* CollectionPressableCell.swift */; };
+		ACBF7CD40472C9BCD747B06505FFDCF3 /* CollectionLayoutFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3481EF47281BD80CB8A7C9C9FE881C63 /* CollectionLayoutFactoryProtocol.swift */; };
+		CBECE47BAFD7F5ADDA0AA029D37EFA42 /* HTMCollectionKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A958FECB4D47D48217B54185515A59 /* HTMCollectionKit-dummy.m */; };
+		F6E29BE20253FBAD1315051DE7AB494A /* CollectionPressableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDEE3DA4A609A87F35F7F083DB7D82C /* CollectionPressableCell.swift */; };
 		FAAD77CC7A54222428C0C6EBAFE66F1C /* Pods-HTMCollectionKit_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 60794CD9C5083371B43846EEC98509A6 /* Pods-HTMCollectionKit_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -40,40 +40,40 @@
 
 /* Begin PBXFileReference section */
 		12231936A0EDF80907FD09FC4F6D1E44 /* Pods-HTMCollectionKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HTMCollectionKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		13F8EC95B64A906408529FB3FA664F1C /* HTMCollectionKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HTMCollectionKit-umbrella.h"; sourceTree = "<group>"; };
-		1457B7FE4BCEA558CB9C4106F329BFCE /* Pods_HTMCollectionKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HTMCollectionKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1457B7FE4BCEA558CB9C4106F329BFCE /* Pods-HTMCollectionKit_Tests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-HTMCollectionKit_Tests"; path = Pods_HTMCollectionKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1997AA0E1CB741CCC09D3B2C60380B4C /* Pods-HTMCollectionKit_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HTMCollectionKit_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		1A3F1ACDF35A5C0E785643422AFBC7E0 /* Pods-HTMCollectionKit_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HTMCollectionKit_Example-Info.plist"; sourceTree = "<group>"; };
-		3482A0CFA644E222A4FDEBEF745F76D5 /* HTMCollectionKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = HTMCollectionKit.modulemap; sourceTree = "<group>"; };
-		37421CA65B2747030BBFC8D3FE1FFF16 /* HTMCollectionKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HTMCollectionKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2281C18AB5DB32E0AFC83163D54D615C /* HTMCollectionKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "HTMCollectionKit-Info.plist"; sourceTree = "<group>"; };
+		3481EF47281BD80CB8A7C9C9FE881C63 /* CollectionLayoutFactoryProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionLayoutFactoryProtocol.swift; sourceTree = "<group>"; };
+		37421CA65B2747030BBFC8D3FE1FFF16 /* HTMCollectionKit */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = HTMCollectionKit; path = HTMCollectionKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		384DDA2CB25005BD6479B5987C619DD4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		3B61913C2965F3996D95D33132C86B96 /* Pods-HTMCollectionKit_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-HTMCollectionKit_Example-frameworks.sh"; sourceTree = "<group>"; };
 		40D56CFC308FBC0E9BB64A3101B29CE4 /* Pods-HTMCollectionKit_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HTMCollectionKit_Tests-Info.plist"; sourceTree = "<group>"; };
-		41EEABD0572106F03C1A680FBD131D3F /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		515FC66EDFFB6FDEB11DEEDEE5117D45 /* HTMCollectionKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = HTMCollectionKit.podspec; sourceTree = "<group>"; tabWidth = 2; };
-		5D2626958A059CEF20982056F1FFB51F /* HTMCollectionKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HTMCollectionKit-prefix.pch"; sourceTree = "<group>"; };
+		44ECBD4674C336B826FA1199CC575D05 /* HTMCollectionKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = HTMCollectionKit.modulemap; sourceTree = "<group>"; };
+		54F2ABB90896003532B374D91EAE449F /* CollectionLayoutFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionLayoutFactory.swift; sourceTree = "<group>"; };
+		55343984328D7EA6B1A94D9689D4766F /* HTMCollectionKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HTMCollectionKit.release.xcconfig; sourceTree = "<group>"; };
 		5E430C14E88E573FE162BAE5C6B880C7 /* Pods-HTMCollectionKit_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-HTMCollectionKit_Example.modulemap"; sourceTree = "<group>"; };
 		6009880876D2910BA3B893609B1EB3D0 /* Pods-HTMCollectionKit_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HTMCollectionKit_Tests-dummy.m"; sourceTree = "<group>"; };
 		60794CD9C5083371B43846EEC98509A6 /* Pods-HTMCollectionKit_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HTMCollectionKit_Example-umbrella.h"; sourceTree = "<group>"; };
-		6D7DED89E27CD47096ED6A7D669AF551 /* HTMCollectionKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HTMCollectionKit.release.xcconfig; sourceTree = "<group>"; };
+		68AFF05ADF934E39F31670F1E237B710 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		6F36A2D6C66D00C07735583234CD371A /* Pods-HTMCollectionKit_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-HTMCollectionKit_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		7B0F30BA7A4AE6AC2B815C17006D3332 /* HTMCollectionKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "HTMCollectionKit-Info.plist"; sourceTree = "<group>"; };
-		7E0F77413C2A284058EB2045B1A162B4 /* CollectionLayoutFactoryProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionLayoutFactoryProtocol.swift; sourceTree = "<group>"; };
+		7CDEE3DA4A609A87F35F7F083DB7D82C /* CollectionPressableCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionPressableCell.swift; sourceTree = "<group>"; };
 		8985503783BDDE2D0B28DE366D70D286 /* Pods-HTMCollectionKit_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-HTMCollectionKit_Tests.modulemap"; sourceTree = "<group>"; };
+		8EAA895FEAE1F483D81145C86250C200 /* HTMCollectionKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HTMCollectionKit-umbrella.h"; sourceTree = "<group>"; };
 		9790FE584C9BF2B6EC756A04E42E5EDB /* Pods-HTMCollectionKit_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HTMCollectionKit_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		97DA00439DE8D43A2B008C96CDA865C1 /* Pods_HTMCollectionKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HTMCollectionKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		97DA00439DE8D43A2B008C96CDA865C1 /* Pods-HTMCollectionKit_Example */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-HTMCollectionKit_Example"; path = Pods_HTMCollectionKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DAA7DCFA9125DBA50BACE67981E6256 /* Pods-HTMCollectionKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HTMCollectionKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		A11586418B00AA570BF5B456EB28E133 /* Pods-HTMCollectionKit_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-HTMCollectionKit_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		AB6FDAE2C85C1752C6A13C57CCC26A0D /* HTMCollectionKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = HTMCollectionKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		AF3A547E721A82D56686D4AA5FE6577D /* Pods-HTMCollectionKit_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-HTMCollectionKit_Tests-umbrella.h"; sourceTree = "<group>"; };
 		AFA8E750D6ED210E19130F5F5B13DAEC /* Pods-HTMCollectionKit_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-HTMCollectionKit_Example-dummy.m"; sourceTree = "<group>"; };
-		B061F4AF8EE266F217BB176D7B3DF347 /* HTMCollectionKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HTMCollectionKit-dummy.m"; sourceTree = "<group>"; };
-		B1934D9E44A24069818FE9261DDF6A3F /* CollectionLayoutFactory.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionLayoutFactory.swift; sourceTree = "<group>"; };
+		B41F658FE914D50E77D86DAFF83FD11C /* HTMCollectionKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HTMCollectionKit.debug.xcconfig; sourceTree = "<group>"; };
+		B4276599EC1FEA5EBF4A501A9AFFAC12 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		C425B1E21F1F28D37AE95D2EBD83CA9A /* Pods-HTMCollectionKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HTMCollectionKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		D24BDDCC059A2F4DEE9B6C88D9AC8B1D /* CollectionPressableCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionPressableCell.swift; sourceTree = "<group>"; };
 		D2DF6C788F4A355F029A6014D8CAFC16 /* Pods-HTMCollectionKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-HTMCollectionKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		DF225C3E656688977C4329FB06442577 /* HTMCollectionKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HTMCollectionKit.debug.xcconfig; sourceTree = "<group>"; };
-		F0F1215C6DBEA494BDF080617FE74777 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E2A958FECB4D47D48217B54185515A59 /* HTMCollectionKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HTMCollectionKit-dummy.m"; sourceTree = "<group>"; };
+		F486F50638D9E37536897A7ED63288F2 /* HTMCollectionKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HTMCollectionKit-prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,40 +107,67 @@
 		0A2AA0842EEA43E6EE8FD73921F9583B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				37421CA65B2747030BBFC8D3FE1FFF16 /* HTMCollectionKit.framework */,
-				97DA00439DE8D43A2B008C96CDA865C1 /* Pods_HTMCollectionKit_Example.framework */,
-				1457B7FE4BCEA558CB9C4106F329BFCE /* Pods_HTMCollectionKit_Tests.framework */,
+				37421CA65B2747030BBFC8D3FE1FFF16 /* HTMCollectionKit */,
+				97DA00439DE8D43A2B008C96CDA865C1 /* Pods-HTMCollectionKit_Example */,
+				1457B7FE4BCEA558CB9C4106F329BFCE /* Pods-HTMCollectionKit_Tests */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2D106360224F533D81965C362B0097D8 /* CollectionPressableCell */ = {
+		0E230782CB57C280059FD75B73915B66 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				D24BDDCC059A2F4DEE9B6C88D9AC8B1D /* CollectionPressableCell.swift */,
+				44ECBD4674C336B826FA1199CC575D05 /* HTMCollectionKit.modulemap */,
+				E2A958FECB4D47D48217B54185515A59 /* HTMCollectionKit-dummy.m */,
+				2281C18AB5DB32E0AFC83163D54D615C /* HTMCollectionKit-Info.plist */,
+				F486F50638D9E37536897A7ED63288F2 /* HTMCollectionKit-prefix.pch */,
+				8EAA895FEAE1F483D81145C86250C200 /* HTMCollectionKit-umbrella.h */,
+				B41F658FE914D50E77D86DAFF83FD11C /* HTMCollectionKit.debug.xcconfig */,
+				55343984328D7EA6B1A94D9689D4766F /* HTMCollectionKit.release.xcconfig */,
 			);
-			name = CollectionPressableCell;
-			path = HTMCollectionKit/Classes/CollectionPressableCell;
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/HTMCollectionKit";
 			sourceTree = "<group>";
 		};
-		4C5BAEE99B75028ED0502E6EE861C234 /* Pod */ = {
+		0EBECCC136C4C043A3665F9637010F21 /* HTMCollectionKit */ = {
 			isa = PBXGroup;
 			children = (
-				515FC66EDFFB6FDEB11DEEDEE5117D45 /* HTMCollectionKit.podspec */,
-				41EEABD0572106F03C1A680FBD131D3F /* LICENSE */,
-				F0F1215C6DBEA494BDF080617FE74777 /* README.md */,
+				4D58F367E960C94A83B90472031F1AB5 /* CollectionPressableCell */,
+				4B77C3FF3A142671E9F2290695674C69 /* CollectionSectionLayoutFactory */,
+				6D07A7B41F3B46E0DD24963E0FE62566 /* Pod */,
+				0E230782CB57C280059FD75B73915B66 /* Support Files */,
 			);
-			name = Pod;
+			name = HTMCollectionKit;
+			path = ../..;
 			sourceTree = "<group>";
 		};
-		4E943C3A3CF3536D6420A3C2AC4CCAC6 /* CollectionSectionLayoutFactory */ = {
+		4B77C3FF3A142671E9F2290695674C69 /* CollectionSectionLayoutFactory */ = {
 			isa = PBXGroup;
 			children = (
-				B1934D9E44A24069818FE9261DDF6A3F /* CollectionLayoutFactory.swift */,
-				7E0F77413C2A284058EB2045B1A162B4 /* CollectionLayoutFactoryProtocol.swift */,
+				54F2ABB90896003532B374D91EAE449F /* CollectionLayoutFactory.swift */,
+				3481EF47281BD80CB8A7C9C9FE881C63 /* CollectionLayoutFactoryProtocol.swift */,
 			);
 			name = CollectionSectionLayoutFactory;
-			path = HTMCollectionKit/Classes/CollectionSectionLayoutFactory;
+			path = Sources/HTMCollectionKit/Classes/CollectionSectionLayoutFactory;
+			sourceTree = "<group>";
+		};
+		4D58F367E960C94A83B90472031F1AB5 /* CollectionPressableCell */ = {
+			isa = PBXGroup;
+			children = (
+				7CDEE3DA4A609A87F35F7F083DB7D82C /* CollectionPressableCell.swift */,
+			);
+			name = CollectionPressableCell;
+			path = Sources/HTMCollectionKit/Classes/CollectionPressableCell;
+			sourceTree = "<group>";
+		};
+		6D07A7B41F3B46E0DD24963E0FE62566 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				AB6FDAE2C85C1752C6A13C57CCC26A0D /* HTMCollectionKit.podspec */,
+				68AFF05ADF934E39F31670F1E237B710 /* LICENSE */,
+				B4276599EC1FEA5EBF4A501A9AFFAC12 /* README.md */,
+			);
+			name = Pod;
 			sourceTree = "<group>";
 		};
 		6DCF3AD4982E9B27DA8308E8E863F475 /* Targets Support Files */ = {
@@ -152,25 +179,10 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		72D95FA36B781CE89AF0352516A5C6FD /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				3482A0CFA644E222A4FDEBEF745F76D5 /* HTMCollectionKit.modulemap */,
-				B061F4AF8EE266F217BB176D7B3DF347 /* HTMCollectionKit-dummy.m */,
-				7B0F30BA7A4AE6AC2B815C17006D3332 /* HTMCollectionKit-Info.plist */,
-				5D2626958A059CEF20982056F1FFB51F /* HTMCollectionKit-prefix.pch */,
-				13F8EC95B64A906408529FB3FA664F1C /* HTMCollectionKit-umbrella.h */,
-				DF225C3E656688977C4329FB06442577 /* HTMCollectionKit.debug.xcconfig */,
-				6D7DED89E27CD47096ED6A7D669AF551 /* HTMCollectionKit.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/HTMCollectionKit";
-			sourceTree = "<group>";
-		};
 		8B536E0C4BF1F03CDCFE1723BADFDD0A /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F1B9A8AB1A0B146BE66DD8A25A45270E /* HTMCollectionKit */,
+				0EBECCC136C4C043A3665F9637010F21 /* HTMCollectionKit */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
@@ -235,18 +247,6 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		F1B9A8AB1A0B146BE66DD8A25A45270E /* HTMCollectionKit */ = {
-			isa = PBXGroup;
-			children = (
-				2D106360224F533D81965C362B0097D8 /* CollectionPressableCell */,
-				4E943C3A3CF3536D6420A3C2AC4CCAC6 /* CollectionSectionLayoutFactory */,
-				4C5BAEE99B75028ED0502E6EE861C234 /* Pod */,
-				72D95FA36B781CE89AF0352516A5C6FD /* Support Files */,
-			);
-			name = HTMCollectionKit;
-			path = ../..;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -293,7 +293,7 @@
 			);
 			name = "Pods-HTMCollectionKit_Tests";
 			productName = Pods_HTMCollectionKit_Tests;
-			productReference = 1457B7FE4BCEA558CB9C4106F329BFCE /* Pods_HTMCollectionKit_Tests.framework */;
+			productReference = 1457B7FE4BCEA558CB9C4106F329BFCE /* Pods-HTMCollectionKit_Tests */;
 			productType = "com.apple.product-type.framework";
 		};
 		91C015F573EC0F00DA2DE4C4375CD76F /* Pods-HTMCollectionKit_Example */ = {
@@ -312,7 +312,7 @@
 			);
 			name = "Pods-HTMCollectionKit_Example";
 			productName = Pods_HTMCollectionKit_Example;
-			productReference = 97DA00439DE8D43A2B008C96CDA865C1 /* Pods_HTMCollectionKit_Example.framework */;
+			productReference = 97DA00439DE8D43A2B008C96CDA865C1 /* Pods-HTMCollectionKit_Example */;
 			productType = "com.apple.product-type.framework";
 		};
 		BCEA12708C2C37745087E1168D000E9B /* HTMCollectionKit */ = {
@@ -330,7 +330,7 @@
 			);
 			name = HTMCollectionKit;
 			productName = HTMCollectionKit;
-			productReference = 37421CA65B2747030BBFC8D3FE1FFF16 /* HTMCollectionKit.framework */;
+			productReference = 37421CA65B2747030BBFC8D3FE1FFF16 /* HTMCollectionKit */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -351,6 +351,8 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			minimizedProjectReferenceProxies = 0;
+			preferredProjectObjectVersion = 77;
 			productRefGroup = 0A2AA0842EEA43E6EE8FD73921F9583B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -432,6 +434,43 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		082F080A6A9C3BE2CEC72D94DB538AFE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55343984328D7EA6B1A94D9689D4766F /* HTMCollectionKit.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/HTMCollectionKit/HTMCollectionKit-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/HTMCollectionKit/HTMCollectionKit-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/HTMCollectionKit/HTMCollectionKit.modulemap";
+				PRODUCT_MODULE_NAME = HTMCollectionKit;
+				PRODUCT_NAME = HTMCollectionKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		5B41B7C8A00CC41E6ED3ABC61145EE06 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 12231936A0EDF80907FD09FC4F6D1E44 /* Pods-HTMCollectionKit_Tests.debug.xcconfig */;
@@ -626,15 +665,16 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
 		};
-		9E99D2A806C100B79FFED5C14DA16BE9 /* Debug */ = {
+		A68B6182F74D12180CBA303A017D20EF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DF225C3E656688977C4329FB06442577 /* HTMCollectionKit.debug.xcconfig */;
+			baseConfigurationReference = B41F658FE914D50E77D86DAFF83FD11C /* HTMCollectionKit.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -661,49 +701,12 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.9;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
-		};
-		A6FC02FEF19990F24C9E9409E78EF64E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6D7DED89E27CD47096ED6A7D669AF551 /* HTMCollectionKit.release.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = NO;
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				GCC_PREFIX_HEADER = "Target Support Files/HTMCollectionKit/HTMCollectionKit-prefix.pch";
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = "Target Support Files/HTMCollectionKit/HTMCollectionKit-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/HTMCollectionKit/HTMCollectionKit.modulemap";
-				PRODUCT_MODULE_NAME = HTMCollectionKit;
-				PRODUCT_NAME = HTMCollectionKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_INSTALL_OBJC_HEADER = YES;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
 		};
 		C83D20D50AE4F43A3AF197C96C0B9F5C /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -784,8 +787,8 @@
 		3DE9FE259491050420AB827E3F902430 /* Build configuration list for PBXNativeTarget "HTMCollectionKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9E99D2A806C100B79FFED5C14DA16BE9 /* Debug */,
-				A6FC02FEF19990F24C9E9409E78EF64E /* Release */,
+				A68B6182F74D12180CBA303A017D20EF /* Debug */,
+				082F080A6A9C3BE2CEC72D94DB538AFE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
