@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'HTMCollectionKit'
-  s.version          = '0.0.3'
+  s.version          = '0.0.4'
   s.summary          = 'A customizable UICollectionView layout engine for building complex horizontal and vertical lists.'
   s.description      = 'A customizable UICollectionView layout engine for building complex horizontal and vertical lists. You can use it with Compositional Layout. Designed by HTM GROUP'
   s.homepage         = 'https://github.com/amashtay/HTMCollectionKit.git'
