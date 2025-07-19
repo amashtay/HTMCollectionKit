@@ -1,5 +1,5 @@
 PODS:
-  - HTMCollectionKit (0.0.2)
+  - HTMCollectionKit (0.0.3)
 
 DEPENDENCIES:
   - HTMCollectionKit (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  HTMCollectionKit: f8f41f651162183926abe3dd6b7c134c50882c46
+  HTMCollectionKit: a81fbd93cbae101cd973c84e1191d871ab7b52d8
 
 PODFILE CHECKSUM: 6976e0168fd375015ab45b5849e7003687391bbb
 
