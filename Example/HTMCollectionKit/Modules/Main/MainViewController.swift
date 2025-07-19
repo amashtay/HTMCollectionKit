@@ -101,11 +101,22 @@ private extension MainViewController {
                 layoutSection = collectionLayoutFactory.createLayoutSection(type: .verticalList())
                 layoutSection?.contentInsets = .init(top: 16.0, leading: 8.0, bottom: 8.0, trailing: 8.0)
             case .itemsGrid:
-                layoutSection = collectionLayoutFactory.createLayoutSection(type: .grid(columnsCount: 2))
+                layoutSection = collectionLayoutFactory
+                    .createLayoutSection(
+                        type: .grid(
+                            columnsCount: 2,
+                            customInterItemSpacing: 8.0
+                        )
+                    )
                 layoutSection?.contentInsets = .init(top: 16.0, leading: 8.0, bottom: 8.0, trailing: 8.0)
                 layoutSection?.interGroupSpacing = 8.0
             case .banners:
-                layoutSection = collectionLayoutFactory.createLayoutSection(type: .horizontalPagingList(customItemHeight: 300.0))
+                layoutSection = collectionLayoutFactory.createLayoutSection(
+                    type: .horizontalPagingList(
+                        customItemWidth: .flexible(0.85),
+                        customItemHeight: .absolute(250.0)
+                    )
+                )
                 layoutSection?.contentInsets = .init(top: 16.0, leading: 8.0, bottom: 8.0, trailing: 8.0)
                 layoutSection?.interGroupSpacing = 4.0
             case .reviews:

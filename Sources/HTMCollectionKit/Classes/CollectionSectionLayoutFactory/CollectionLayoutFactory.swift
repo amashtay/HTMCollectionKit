@@ -14,76 +14,127 @@ public final class CollectionLayoutFactory: CollectionLayoutFactoryProtocol {
     // MARK: CollectionLayoutFactoryProtocol
     public func createLayoutSection(type: CollectionLayoutSectionType) -> NSCollectionLayoutSection? {
         switch type {
-        case let .grid(columnsCount, customItemHeight):
-            createGridLayoutSection(columnsCount: columnsCount, customItemHeight: customItemHeight)
+        case let .grid(columnsCount, customSpacing, customItemHeight):
+            createGridLayoutSection(
+                columnsCount: columnsCount,
+                customInterItemSpacing: customSpacing,
+                customItemHeight: customItemHeight
+            )
         case let .verticalList(customItemHeight):
-            createGridLayoutSection(columnsCount: 1, customItemHeight: customItemHeight)
+            createGridLayoutSection(
+                columnsCount: 1,
+                customItemHeight: customItemHeight
+            )
         case let .horizontalList(customItemWidth, customItemHeight):
-            createHorizontalListLayoutSection(customItemWidth: customItemWidth, customItemHeight: customItemHeight)
-        case let .horizontalPagingList(customItemHeight):
-            createHorizontalPagingListLayoutSection(customItemHeight: customItemHeight)
+            createHorizontalListLayoutSection(
+                customItemWidth: customItemWidth,
+                customItemHeight: customItemHeight,
+                orthogonalScrollingBehavior: .continuous
+            )
+        case let .horizontalPagingList(customItemWidth, customItemHeight):
+            createHorizontalListLayoutSection(
+                customItemWidth: customItemWidth,
+                customItemHeight: customItemHeight,
+                orthogonalScrollingBehavior: .groupPaging
+            )
         }
     }
     
     // MARK: Private    
     private func createGridLayoutSection(
         columnsCount: Int = 1,
-        customItemHeight: CGFloat? = nil
+        customInterItemSpacing: CGFloat? = nil,
+        customItemHeight: CustomItemDimensionSize? = nil
     ) -> NSCollectionLayoutSection {
-        let widthFraction: NSCollectionLayoutDimension = .fractionalWidth(1.0 / CGFloat(columnsCount))
-        let heightFraction: NSCollectionLayoutDimension
-        if let customItemHeight {
-            heightFraction = .absolute(customItemHeight)
-        } else {
-            heightFraction = .estimated(200.0)
+        let itemWidthFraction: NSCollectionLayoutDimension = .fractionalWidth(1.0 / CGFloat(columnsCount))
+        let groupWidthFraction: NSCollectionLayoutDimension = .fractionalWidth(1.0)
+        
+        let itemHeightFraction: NSCollectionLayoutDimension
+        let groupHeightFraction: NSCollectionLayoutDimension
+        switch customItemHeight {
+        case let .absolute(height):
+            itemHeightFraction = .absolute(height)
+            groupHeightFraction = .absolute(height)
+        case let .estimated(height):
+            itemHeightFraction = .estimated(height)
+            groupHeightFraction = .estimated(height)
+        case let .flexible(ratio):
+            itemHeightFraction = .fractionalHeight(1.0)
+            groupHeightFraction = .fractionalHeight(ratio)
+        case .none:
+            itemHeightFraction = .estimated(200.0)
+            groupHeightFraction = .estimated(200.0)
         }
         
         let itemSize = NSCollectionLayoutSize(
-            widthDimension: widthFraction,
-            heightDimension: heightFraction
+            widthDimension: itemWidthFraction,
+            heightDimension: itemHeightFraction
         )
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
         let groupSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
-            heightDimension: heightFraction
+            widthDimension: groupWidthFraction,
+            heightDimension: groupHeightFraction
         )
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: groupSize,
             subitem: item,
             count: columnsCount
         )
-        group.interItemSpacing = .fixed(4.0)
+        group.interItemSpacing = .fixed(customInterItemSpacing ?? 4.0)
         let section = NSCollectionLayoutSection(group: group)
         return section
     }
     
     private func createHorizontalListLayoutSection(
-        customItemWidth: CGFloat? = nil,
-        customItemHeight: CGFloat? = nil
+        customItemWidth: CustomItemDimensionSize? = nil,
+        customItemHeight: CustomItemDimensionSize? = nil,
+        orthogonalScrollingBehavior: UICollectionLayoutSectionOrthogonalScrollingBehavior
     ) -> NSCollectionLayoutSection {
-        let widthFraction: NSCollectionLayoutDimension
-        if let customItemWidth {
-            widthFraction = .absolute(customItemWidth)
-        } else {
-            widthFraction = .estimated(100.0)
+        let itemWidthFraction: NSCollectionLayoutDimension
+        let itemHeightFraction: NSCollectionLayoutDimension
+        
+        let groupWidthFraction: NSCollectionLayoutDimension
+        let groupHeightFraction: NSCollectionLayoutDimension
+        
+        switch customItemWidth {
+        case let .absolute(width):
+            itemWidthFraction = .absolute(width)
+            groupWidthFraction = .absolute(width)
+        case let .estimated(width):
+            itemWidthFraction = .estimated(width)
+            groupWidthFraction = .estimated(width)
+        case let .flexible(ratio):
+            itemWidthFraction = .fractionalWidth(1.0)
+            groupWidthFraction = .fractionalWidth(ratio)
+        case .none:
+            itemWidthFraction = .estimated(100.0)
+            groupWidthFraction = .estimated(100.0)
         }
         
-        let heightFraction: NSCollectionLayoutDimension
-        if let customItemHeight {
-            heightFraction = .absolute(customItemHeight)
-        } else {
-            heightFraction = .estimated(120.0)
+        switch customItemHeight {
+        case let .absolute(height):
+            itemHeightFraction = .absolute(height)
+            groupHeightFraction = .absolute(height)
+        case let .estimated(height):
+            itemHeightFraction = .estimated(height)
+            groupHeightFraction = .estimated(height)
+        case let .flexible(ratio):
+            itemHeightFraction = .fractionalHeight(1.0)
+            groupHeightFraction = .fractionalHeight(ratio)
+        case .none:
+            itemHeightFraction = .estimated(120.0)
+            groupHeightFraction = .estimated(120.0)
         }
         
         let itemSize = NSCollectionLayoutSize(
-            widthDimension: widthFraction,
-            heightDimension: .fractionalHeight(1.0)
+            widthDimension: itemWidthFraction,
+            heightDimension: itemHeightFraction
         )
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         let groupSize = NSCollectionLayoutSize(
-            widthDimension: widthFraction,
-            heightDimension: heightFraction
+            widthDimension: groupWidthFraction,
+            heightDimension: groupHeightFraction
         )
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: groupSize,
@@ -92,36 +143,7 @@ public final class CollectionLayoutFactory: CollectionLayoutFactoryProtocol {
 
         let section = NSCollectionLayoutSection(group: group)
         section.interGroupSpacing = 8.0
-        section.orthogonalScrollingBehavior = .continuous
-
-        return section
-    }
-    
-    private func createHorizontalPagingListLayoutSection(customItemHeight: CGFloat? = nil) -> NSCollectionLayoutSection {
-        let heightFraction: NSCollectionLayoutDimension
-        if let customItemHeight {
-            heightFraction = .absolute(customItemHeight)
-        } else {
-            heightFraction = .estimated(200.0)
-        }
-        
-        let itemSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
-            heightDimension: .fractionalHeight(1.0)
-        )
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        let groupSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(0.9),
-            heightDimension: heightFraction
-        )
-        let group = NSCollectionLayoutGroup.horizontal(
-            layoutSize: groupSize,
-            subitems: [item]
-        )
-
-        let section = NSCollectionLayoutSection(group: group)
-        section.interGroupSpacing = 8.0
-        section.orthogonalScrollingBehavior = .groupPaging
+        section.orthogonalScrollingBehavior = orthogonalScrollingBehavior
 
         return section
     }

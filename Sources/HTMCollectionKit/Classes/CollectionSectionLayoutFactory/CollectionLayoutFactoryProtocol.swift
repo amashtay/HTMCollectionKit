@@ -7,11 +7,17 @@
 
 import UIKit
 
+public enum CustomItemDimensionSize {
+    case absolute(CGFloat)
+    case flexible(CGFloat)
+    case estimated(CGFloat)
+}
+
 public enum CollectionLayoutSectionType {
-    case grid(columnsCount: Int, customItemHeight: CGFloat? = nil)
-    case verticalList(customItemHeight: CGFloat? = nil)
-    case horizontalList(customItemWidth: CGFloat? = nil, customItemHeight: CGFloat? = nil)
-    case horizontalPagingList(customItemHeight: CGFloat? = nil)
+    case grid(columnsCount: Int, customInterItemSpacing: CGFloat? = nil, customItemHeight: CustomItemDimensionSize? = nil)
+    case verticalList(customItemHeight: CustomItemDimensionSize? = nil)
+    case horizontalList(customItemWidth: CustomItemDimensionSize? = nil, customItemHeight: CustomItemDimensionSize? = nil)
+    case horizontalPagingList(customItemWidth: CustomItemDimensionSize? = nil, customItemHeight: CustomItemDimensionSize? = nil)
 }
 
 public protocol CollectionLayoutFactoryProtocol: AnyObject {
