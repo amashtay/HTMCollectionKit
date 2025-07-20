@@ -16,8 +16,11 @@ public enum CustomItemDimensionSize {
 public enum CollectionLayoutSectionType {
     case grid(columnsCount: Int, customInterItemSpacing: CGFloat? = nil, customItemHeight: CustomItemDimensionSize? = nil)
     case verticalList(customItemHeight: CustomItemDimensionSize? = nil)
-    case horizontalList(customItemWidth: CustomItemDimensionSize? = nil, customItemHeight: CustomItemDimensionSize? = nil)
-    case horizontalPagingList(customItemWidth: CustomItemDimensionSize? = nil, customItemHeight: CustomItemDimensionSize? = nil)
+    case horizontalList(
+        customItemWidth: CustomItemDimensionSize? = nil,
+        customItemHeight: CustomItemDimensionSize? = nil,
+        scrollBehavior: UICollectionLayoutSectionOrthogonalScrollingBehavior
+    )
 }
 
 public protocol CollectionLayoutFactoryProtocol: AnyObject {

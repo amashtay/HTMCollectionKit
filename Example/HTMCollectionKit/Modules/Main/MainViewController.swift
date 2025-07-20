@@ -118,9 +118,10 @@ private extension MainViewController {
                 layoutSection?.interGroupSpacing = 8.0
             case .banners:
                 layoutSection = collectionLayoutFactory.createLayoutSection(
-                    type: .horizontalPagingList(
-                        customItemWidth: .flexible(0.85),
-                        customItemHeight: .absolute(250.0)
+                    type: .horizontalList(
+                        customItemWidth: .flexible(0.95),
+                        customItemHeight: .absolute(250.0),
+                        scrollBehavior: .groupPagingCentered
                     ),
                     isHeaderHidden: isHeaderHidden
                 )

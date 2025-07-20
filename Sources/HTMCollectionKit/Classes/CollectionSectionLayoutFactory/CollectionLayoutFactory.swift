@@ -31,18 +31,11 @@ public final class CollectionLayoutFactory: CollectionLayoutFactoryProtocol {
                 customItemHeight: customItemHeight,
                 isHeaderHidden: isHeaderHidden
             )
-        case let .horizontalList(customItemWidth, customItemHeight):
+        case let .horizontalList(customItemWidth, customItemHeight, orthogonalScrollingBehavior):
             createHorizontalListLayoutSection(
                 customItemWidth: customItemWidth,
                 customItemHeight: customItemHeight,
-                orthogonalScrollingBehavior: .continuous,
-                isHeaderHidden: isHeaderHidden
-            )
-        case let .horizontalPagingList(customItemWidth, customItemHeight):
-            createHorizontalListLayoutSection(
-                customItemWidth: customItemWidth,
-                customItemHeight: customItemHeight,
-                orthogonalScrollingBehavior: .groupPaging,
+                orthogonalScrollingBehavior: orthogonalScrollingBehavior,
                 isHeaderHidden: isHeaderHidden
             )
         }
