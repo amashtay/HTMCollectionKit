@@ -98,11 +98,15 @@ private extension MainViewController {
             let sectionViewData = viewData.sections[sectionIndex]
             let isHeaderHidden = sectionViewData.title?.isEmpty ?? true
             
+            let headerConfiguration: HeaderConfiguration? = isHeaderHidden
+                ? nil
+                : HeaderConfiguration()
+            
             switch sectionViewData.type {
             case .description:
                 layoutSection = collectionLayoutFactory.createLayoutSection(
                     type: .verticalList(),
-                    isHeaderHidden: isHeaderHidden
+                    headerConfiguration: headerConfiguration
                 )
                 layoutSection?.contentInsets = .init(top: 16.0, leading: 8.0, bottom: 32.0, trailing: 8.0)
             case .itemsGrid:
@@ -112,7 +116,7 @@ private extension MainViewController {
                             columnsCount: 2,
                             customInterItemSpacing: 8.0
                         ),
-                        isHeaderHidden: isHeaderHidden
+                        headerConfiguration: headerConfiguration
                     )
                 layoutSection?.contentInsets = .init(top: 16.0, leading: 8.0, bottom: 32.0, trailing: 8.0)
                 layoutSection?.interGroupSpacing = 8.0
@@ -123,14 +127,14 @@ private extension MainViewController {
                         customItemHeight: .absolute(250.0),
                         scrollBehavior: .groupPagingCentered
                     ),
-                    isHeaderHidden: isHeaderHidden
+                    headerConfiguration: headerConfiguration
                 )
                 layoutSection?.contentInsets = .init(top: 16.0, leading: 8.0, bottom: 8.0, trailing: 8.0)
                 layoutSection?.interGroupSpacing = 4.0
             case .reviews:
                 layoutSection = collectionLayoutFactory.createLayoutSection(
                     type: .verticalList(),
-                    isHeaderHidden: isHeaderHidden
+                    headerConfiguration: headerConfiguration
                 )
                 layoutSection?.contentInsets = .init(top: 16.0, leading: 8.0, bottom: 32.0, trailing: 8.0)
                 layoutSection?.interGroupSpacing = 8.0

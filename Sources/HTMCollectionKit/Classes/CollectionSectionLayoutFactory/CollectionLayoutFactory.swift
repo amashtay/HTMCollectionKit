@@ -15,7 +15,7 @@ public final class CollectionLayoutFactory: CollectionLayoutFactoryProtocol {
     
     public func createLayoutSection(
         type: CollectionLayoutSectionType,
-        isHeaderHidden: Bool
+        headerConfiguration: HeaderConfiguration?
     ) -> NSCollectionLayoutSection? {
         switch type {
         case let .grid(columnsCount, customSpacing, customItemHeight):
@@ -23,20 +23,20 @@ public final class CollectionLayoutFactory: CollectionLayoutFactoryProtocol {
                 columnsCount: columnsCount,
                 customInterItemSpacing: customSpacing,
                 customItemHeight: customItemHeight,
-                isHeaderHidden: isHeaderHidden
+                headerConfiguration: headerConfiguration
             )
         case let .verticalList(customItemHeight):
             createGridLayoutSection(
                 columnsCount: 1,
                 customItemHeight: customItemHeight,
-                isHeaderHidden: isHeaderHidden
+                headerConfiguration: headerConfiguration
             )
         case let .horizontalList(customItemWidth, customItemHeight, orthogonalScrollingBehavior):
             createHorizontalListLayoutSection(
                 customItemWidth: customItemWidth,
                 customItemHeight: customItemHeight,
                 orthogonalScrollingBehavior: orthogonalScrollingBehavior,
-                isHeaderHidden: isHeaderHidden
+                headerConfiguration: headerConfiguration
             )
         }
     }
@@ -47,7 +47,7 @@ public final class CollectionLayoutFactory: CollectionLayoutFactoryProtocol {
         columnsCount: Int = 1,
         customInterItemSpacing: CGFloat? = nil,
         customItemHeight: CustomItemDimensionSize? = nil,
-        isHeaderHidden: Bool
+        headerConfiguration: HeaderConfiguration?
     ) -> NSCollectionLayoutSection {
         let itemWidthFraction: NSCollectionLayoutDimension = .fractionalWidth(1.0 / CGFloat(columnsCount))
         let groupWidthFraction: NSCollectionLayoutDimension = .fractionalWidth(1.0)
@@ -86,8 +86,8 @@ public final class CollectionLayoutFactory: CollectionLayoutFactoryProtocol {
         )
         group.interItemSpacing = .fixed(customInterItemSpacing ?? 4.0)
         let section = NSCollectionLayoutSection(group: group)
-        if !isHeaderHidden {
-            section.boundarySupplementaryItems = [createHeaderLayout()]
+        if let headerConfiguration {
+            section.boundarySupplementaryItems = [createHeaderLayout(headerConfiguration: headerConfiguration)]
         }
         return section
     }
@@ -96,7 +96,7 @@ public final class CollectionLayoutFactory: CollectionLayoutFactoryProtocol {
         customItemWidth: CustomItemDimensionSize? = nil,
         customItemHeight: CustomItemDimensionSize? = nil,
         orthogonalScrollingBehavior: UICollectionLayoutSectionOrthogonalScrollingBehavior,
-        isHeaderHidden: Bool
+        headerConfiguration: HeaderConfiguration?
     ) -> NSCollectionLayoutSection {
         let itemWidthFraction: NSCollectionLayoutDimension
         let itemHeightFraction: NSCollectionLayoutDimension
@@ -151,17 +151,40 @@ public final class CollectionLayoutFactory: CollectionLayoutFactoryProtocol {
         let section = NSCollectionLayoutSection(group: group)
         section.interGroupSpacing = 8.0
         section.orthogonalScrollingBehavior = orthogonalScrollingBehavior
-        if !isHeaderHidden {
-            section.boundarySupplementaryItems = [createHeaderLayout()]
+        if let headerConfiguration {
+            section.boundarySupplementaryItems = [createHeaderLayout(headerConfiguration: headerConfiguration)]
         }
         
         return section
     }
     
-    private func createHeaderLayout() -> NSCollectionLayoutBoundarySupplementaryItem {
+    private func createHeaderLayout(
+        headerConfiguration: HeaderConfiguration
+    ) -> NSCollectionLayoutBoundarySupplementaryItem {
+        
+        let widthDimension: NSCollectionLayoutDimension
+        switch headerConfiguration.headerWidthDimensionSize {
+        case let .absolute(absoluteWidth):
+            widthDimension = .absolute(absoluteWidth)
+        case let .estimated(estimatedWidth):
+            widthDimension = .estimated(estimatedWidth)
+        case let .flexible(ratio):
+            widthDimension = .fractionalWidth(ratio)
+        }
+        
+        let heightDimension: NSCollectionLayoutDimension
+        switch headerConfiguration.headerHeightDimensionSize {
+        case let .absolute(absoluteHeight):
+            heightDimension = .absolute(absoluteHeight)
+        case let .estimated(estimatedHeight):
+            heightDimension = .estimated(estimatedHeight)
+        case let .flexible(ratio):
+            heightDimension = .fractionalWidth(ratio)
+        }
+        
         let headerSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
-            heightDimension: .estimated(44.0)
+            widthDimension: widthDimension,
+            heightDimension: heightDimension
         )
 
         let header = NSCollectionLayoutBoundarySupplementaryItem(
