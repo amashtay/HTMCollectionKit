@@ -15,6 +15,7 @@ struct MainViewData {
 struct MainViewSectionData: Hashable {
     enum SectionLayoutType: Hashable {
         case banners
+        case tags
         case description
         case itemsGrid
         case reviews
@@ -22,6 +23,7 @@ struct MainViewSectionData: Hashable {
     
     enum ItemType: Hashable {
         case banner(BannerCellItem)
+        case tag(TagCellItem)
         case description(DescriptionCellItem)
         case gridItem(AdvertCardCellItem)
         case review(ReviewCellItem)

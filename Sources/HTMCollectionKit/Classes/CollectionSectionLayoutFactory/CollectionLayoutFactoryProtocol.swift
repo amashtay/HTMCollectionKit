@@ -34,6 +34,10 @@ public enum CollectionLayoutSectionType {
         customItemHeight: CustomItemDimensionSize? = nil,
         scrollBehavior: UICollectionLayoutSectionOrthogonalScrollingBehavior = .continuous
     )
+    case tagsList(
+        customItemWidth: CustomItemDimensionSize? = nil,
+        customItemHeight: CustomItemDimensionSize? = nil
+    )
 }
 
 public protocol CollectionLayoutFactoryProtocol: AnyObject {

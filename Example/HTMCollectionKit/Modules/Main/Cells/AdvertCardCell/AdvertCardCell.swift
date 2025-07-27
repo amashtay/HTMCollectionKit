@@ -15,8 +15,8 @@ final class AdvertCardCell: CollectionPressableCell {
     private let containerView: UIView = {
         let view = UIView()
         view.clipsToBounds = true
+        view.backgroundColor = .secondarySystemFill
         view.layer.cornerRadius = 8.0
-        view.backgroundColor = .systemGroupedBackground
         
         return view
     }()

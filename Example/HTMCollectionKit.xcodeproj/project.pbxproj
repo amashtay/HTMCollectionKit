@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1EB563B22E368B0F004B0E93 /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB563B12E368B0B004B0E93 /* TagCell.swift */; };
+		1EB563B42E368C9F004B0E93 /* TagCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB563B32E368C9B004B0E93 /* TagCellItem.swift */; };
 		1EB5EA642E2C457C00123978 /* TitleHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB5EA632E2C457300123978 /* TitleHeader.swift */; };
 		4C27E71245D2A8115428D084 /* Pods_HTMCollectionKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5700B20C96BD545AB8E3930 /* Pods_HTMCollectionKit_Example.framework */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
@@ -60,6 +62,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1EB563B12E368B0B004B0E93 /* TagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
+		1EB563B32E368C9B004B0E93 /* TagCellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCellItem.swift; sourceTree = "<group>"; };
 		1EB5EA632E2C457300123978 /* TitleHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleHeader.swift; sourceTree = "<group>"; };
 		3DF9B6C86ADB5BAE19FD2BE5 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		3F14A3A417BCE8063361B8AF /* Pods_HTMCollectionKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HTMCollectionKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,6 +146,22 @@
 				EF2C6CE0493F83C048520BD3 /* Pods-HTMCollectionKit_Tests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		1EB563B02E368B00004B0E93 /* TagCell */ = {
+			isa = PBXGroup;
+			children = (
+				1EB563B32E368C9B004B0E93 /* TagCellItem.swift */,
+				1EB563B12E368B0B004B0E93 /* TagCell.swift */,
+			);
+			path = TagCell;
+			sourceTree = "<group>";
+		};
+		1EB563B52E368D3D004B0E93 /* TagsService */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TagsService;
 			sourceTree = "<group>";
 		};
 		1EB5EA622E2C456E00123978 /* Header */ = {
@@ -334,6 +354,7 @@
 				EE49DC7E2E2A7142006B0A2D /* BannersService */,
 				EE49DC832E2A7142006B0A2D /* RecommendationsService */,
 				EE49DC882E2A7142006B0A2D /* ReviewsService */,
+				1EB563B52E368D3D004B0E93 /* TagsService */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -377,6 +398,7 @@
 		EE49DCA22E2A7154006B0A2D /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				1EB563B02E368B00004B0E93 /* TagCell */,
 				EE49DC982E2A7154006B0A2D /* AdvertCardCell */,
 				EE49DC9B2E2A7154006B0A2D /* BannerCell */,
 				EE49DC9E2E2A7154006B0A2D /* DescriptionCell */,
@@ -658,9 +680,11 @@
 				EE49DC912E2A7142006B0A2D /* ReviewsServiceProtocol.swift in Sources */,
 				EE49DC922E2A7142006B0A2D /* AdvertServiceProtocol.swift in Sources */,
 				EE49DC932E2A7142006B0A2D /* RecommendationsServiceProtocol.swift in Sources */,
+				1EB563B22E368B0F004B0E93 /* TagCell.swift in Sources */,
 				EE49DC942E2A7142006B0A2D /* BannersServiceProtocol.swift in Sources */,
 				EE49DC952E2A7142006B0A2D /* Banner.swift in Sources */,
 				EE49DC6E2E2A7105006B0A2D /* Module.swift in Sources */,
+				1EB563B42E368C9F004B0E93 /* TagCellItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

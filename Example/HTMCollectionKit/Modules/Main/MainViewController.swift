@@ -109,6 +109,16 @@ private extension MainViewController {
                     headerConfiguration: headerConfiguration
                 )
                 layoutSection?.contentInsets = .init(top: 16.0, leading: 8.0, bottom: 32.0, trailing: 8.0)
+            case .tags:
+                layoutSection = collectionLayoutFactory.createLayoutSection(
+                    type: .tagsList(
+                        customItemWidth: .estimated(44.0),
+                        customItemHeight: .estimated(44.0)
+                    ),
+                    headerConfiguration: nil
+                )
+                layoutSection?.contentInsets = .init(top: 16.0, leading: 8.0, bottom: 32.0, trailing: 8.0)
+                layoutSection?.interGroupSpacing = 8.0
             case .itemsGrid:
                 layoutSection = collectionLayoutFactory
                     .createLayoutSection(

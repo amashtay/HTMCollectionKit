@@ -39,6 +39,12 @@ final class MainViewDataSource: UICollectionViewDiffableDataSource<MainViewSecti
                     
                     return cell
                 }
+            case let .tag(model):
+                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TagCell.cellReuseId, for: indexPath) as? TagCell {
+                    cell.configure(model: model)
+                    
+                    return cell
+                }
             }
             
             return nil
@@ -89,6 +95,7 @@ final class MainViewDataSource: UICollectionViewDiffableDataSource<MainViewSecti
         collectionView.register(ReviewCell.self, forCellWithReuseIdentifier: ReviewCell.cellReuseId)
         collectionView.register(DescriptionCell.self, forCellWithReuseIdentifier: DescriptionCell.cellReuseId)
         collectionView.register(AdvertCardCell.self, forCellWithReuseIdentifier: AdvertCardCell.cellReuseId)
+        collectionView.register(TagCell.self, forCellWithReuseIdentifier: TagCell.cellReuseId)
     }
     
     private func registerSupplementaryItems(collectionView: UICollectionView) {

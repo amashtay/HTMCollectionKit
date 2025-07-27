@@ -38,6 +38,12 @@ public final class CollectionLayoutFactory: CollectionLayoutFactoryProtocol {
                 orthogonalScrollingBehavior: orthogonalScrollingBehavior,
                 headerConfiguration: headerConfiguration
             )
+        case let .tagsList(customItemWidth, customItemHeight):
+            createTagsLayout(
+                customItemWidth: customItemWidth,
+                customItemHeight: customItemHeight,
+                headerConfiguration: headerConfiguration
+            )
         }
     }
     
@@ -54,21 +60,14 @@ public final class CollectionLayoutFactory: CollectionLayoutFactoryProtocol {
         
         let itemHeightFraction: NSCollectionLayoutDimension
         let groupHeightFraction: NSCollectionLayoutDimension
-        switch customItemHeight {
-        case let .absolute(height):
-            itemHeightFraction = .absolute(height)
-            groupHeightFraction = .absolute(height)
-        case let .estimated(height):
-            itemHeightFraction = .estimated(height)
-            groupHeightFraction = .estimated(height)
-        case let .flexible(ratio):
-            itemHeightFraction = .fractionalHeight(1.0)
-            groupHeightFraction = .fractionalHeight(ratio)
-        case .none:
+        if let customItemHeight {
+            itemHeightFraction = mapItemDimensionHeight(customItemHeight: customItemHeight)
+            groupHeightFraction = mapGroupDimensionHeight(customItemHeight: customItemHeight)
+        } else {
             itemHeightFraction = .estimated(200.0)
             groupHeightFraction = .estimated(200.0)
         }
-        
+                
         let itemSize = NSCollectionLayoutSize(
             widthDimension: itemWidthFraction,
             heightDimension: itemHeightFraction
@@ -99,41 +98,25 @@ public final class CollectionLayoutFactory: CollectionLayoutFactoryProtocol {
         headerConfiguration: HeaderConfiguration?
     ) -> NSCollectionLayoutSection {
         let itemWidthFraction: NSCollectionLayoutDimension
-        let itemHeightFraction: NSCollectionLayoutDimension
-        
         let groupWidthFraction: NSCollectionLayoutDimension
-        let groupHeightFraction: NSCollectionLayoutDimension
-        
-        switch customItemWidth {
-        case let .absolute(width):
-            itemWidthFraction = .absolute(width)
-            groupWidthFraction = .absolute(width)
-        case let .estimated(width):
-            itemWidthFraction = .estimated(width)
-            groupWidthFraction = .estimated(width)
-        case let .flexible(ratio):
-            itemWidthFraction = .fractionalWidth(1.0)
-            groupWidthFraction = .fractionalWidth(ratio)
-        case .none:
+        if let customItemWidth {
+            itemWidthFraction = mapItemDimensionWidth(customItemWidth: customItemWidth)
+            groupWidthFraction = mapGroupDimensionWidth(customItemWidth: customItemWidth)
+        } else {
             itemWidthFraction = .estimated(100.0)
             groupWidthFraction = .estimated(100.0)
         }
         
-        switch customItemHeight {
-        case let .absolute(height):
-            itemHeightFraction = .absolute(height)
-            groupHeightFraction = .absolute(height)
-        case let .estimated(height):
-            itemHeightFraction = .estimated(height)
-            groupHeightFraction = .estimated(height)
-        case let .flexible(ratio):
-            itemHeightFraction = .fractionalHeight(1.0)
-            groupHeightFraction = .fractionalHeight(ratio)
-        case .none:
+        let itemHeightFraction: NSCollectionLayoutDimension
+        let groupHeightFraction: NSCollectionLayoutDimension
+        if let customItemHeight {
+            itemHeightFraction = mapItemDimensionHeight(customItemHeight: customItemHeight)
+            groupHeightFraction = mapGroupDimensionHeight(customItemHeight: customItemHeight)
+        } else {
             itemHeightFraction = .estimated(120.0)
             groupHeightFraction = .estimated(120.0)
         }
-        
+           
         let itemSize = NSCollectionLayoutSize(
             widthDimension: itemWidthFraction,
             heightDimension: itemHeightFraction
@@ -158,10 +141,120 @@ public final class CollectionLayoutFactory: CollectionLayoutFactoryProtocol {
         return section
     }
     
+    private func createTagsLayout(
+        customItemWidth: CustomItemDimensionSize? = nil,
+        customItemHeight: CustomItemDimensionSize? = nil,
+        customInterItemSpacing: CGFloat? = nil,
+        headerConfiguration: HeaderConfiguration?
+    ) -> NSCollectionLayoutSection {
+        let itemWidthFraction: NSCollectionLayoutDimension
+        if let customItemWidth {
+            itemWidthFraction = mapItemDimensionWidth(customItemWidth: customItemWidth)
+        } else {
+            itemWidthFraction = .estimated(100.0)
+        }
+        
+        let itemHeightFraction: NSCollectionLayoutDimension
+        if let customItemHeight {
+            itemHeightFraction = mapItemDimensionHeight(customItemHeight: customItemHeight)
+        } else {
+            itemHeightFraction = .estimated(32.0)
+        }
+        
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: itemWidthFraction,
+            heightDimension: itemHeightFraction
+        )
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .estimated(200)
+        )
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: groupSize,
+            subitems: [item]
+        )
+        group.interItemSpacing = .fixed(customInterItemSpacing ?? 4.0)
+
+        let section = NSCollectionLayoutSection(group: group)
+        section.interGroupSpacing = 8
+        section.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16)
+        section.orthogonalScrollingBehavior = .none
+        if let headerConfiguration {
+            section.boundarySupplementaryItems = [createHeaderLayout(headerConfiguration: headerConfiguration)]
+        }
+
+        return section
+    }
+}
+
+// MARK: - Mapping dimensions
+private extension CollectionLayoutFactory {
+    private func mapItemDimensionWidth(customItemWidth: CustomItemDimensionSize) -> NSCollectionLayoutDimension {
+        let itemWidthDimension: NSCollectionLayoutDimension
+        switch customItemWidth {
+        case let .absolute(width):
+            itemWidthDimension = .absolute(width)
+        case let .estimated(width):
+            itemWidthDimension = .estimated(width)
+        case .flexible:
+            itemWidthDimension = .fractionalWidth(1.0)
+        }
+        
+        return itemWidthDimension
+    }
+    
+    private func mapItemDimensionHeight(customItemHeight: CustomItemDimensionSize) -> NSCollectionLayoutDimension {
+        let itemHeightDimension: NSCollectionLayoutDimension
+        
+        switch customItemHeight {
+        case let .absolute(height):
+            itemHeightDimension = .absolute(height)
+        case let .estimated(height):
+            itemHeightDimension = .estimated(height)
+        case .flexible:
+            itemHeightDimension = .fractionalHeight(1.0)
+        }
+        
+        return itemHeightDimension
+    }
+    
+    private func mapGroupDimensionWidth(customItemWidth: CustomItemDimensionSize) -> NSCollectionLayoutDimension {
+        let groupWidthDimension: NSCollectionLayoutDimension
+        
+        switch customItemWidth {
+        case let .absolute(width):
+            groupWidthDimension = .absolute(width)
+        case let .estimated(width):
+            groupWidthDimension = .estimated(width)
+        case let .flexible(ratio):
+            groupWidthDimension = .fractionalWidth(ratio)
+        }
+        
+        return groupWidthDimension
+    }
+    
+    private func mapGroupDimensionHeight(customItemHeight: CustomItemDimensionSize) -> NSCollectionLayoutDimension {
+        let groupHeightDimension: NSCollectionLayoutDimension
+        
+        switch customItemHeight {
+        case let .absolute(height):
+            groupHeightDimension = .absolute(height)
+        case let .estimated(height):
+            groupHeightDimension = .estimated(height)
+        case let .flexible(ratio):
+            groupHeightDimension = .fractionalHeight(ratio)
+        }
+        
+        return groupHeightDimension
+    }
+}
+
+// MARK: - Header
+private extension CollectionLayoutFactory {
     private func createHeaderLayout(
         headerConfiguration: HeaderConfiguration
     ) -> NSCollectionLayoutBoundarySupplementaryItem {
-        
         let widthDimension: NSCollectionLayoutDimension
         switch headerConfiguration.headerWidthDimensionSize {
         case let .absolute(absoluteWidth):
