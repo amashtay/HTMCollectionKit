@@ -2,7 +2,7 @@
 //  MainViewDataFactory.swift
 //  HTMCollectionKit
 //
-//  Created by amashtayon 08.07.2025.
+//  Created by amashtay on 08.07.2025.
 //  Copyright © 2025 CocoaPods. All rights reserved.
 //
 
@@ -31,41 +31,7 @@ final class MainViewDataFactory: MainViewDataFactoryProtocol {
                 .init(
                     type: .tags,
                     title: nil,
-                    items: [
-                        .tag(.init(title: "люк")),
-                        .tag(.init(title: "спойлер")),
-                        .tag(.init(title: "обвес")),
-                        .tag(.init(title: "велюр")),
-                        .tag(.init(title: "аудиосистема")),
-                        .tag(.init(title: "bluetooth")),
-                        .tag(.init(title: "MP3")),
-                        .tag(.init(title: "ГУР")),
-                        .tag(.init(title: "кондиционер")),
-                        .tag(.init(title: "мультируль")),
-                        .tag(.init(title: "налог уплачен")),
-                        .tag(.init(title: "техосмотр пройден")),
-                        .tag(.init(title: "Lorem ipsum")),
-                        .tag(.init(title: "8")),
-                        .tag(.init(title: "Dolor sit amet")),
-                        .tag(.init(title: "Consectetur adipiscing")),
-                        .tag(.init(title: "Elit sed do")),
-                        .tag(.init(title: "Eiusmod tempor")),
-                        .tag(.init(title: "Incididunt ut labore")),
-                        .tag(.init(title: "Et dolore magna")),
-                        .tag(.init(title: "Aliqua ut enim")),
-                        .tag(.init(title: "Ad minim veniam")),
-                        .tag(.init(title: "Quis nostrud exercitation")),
-                        .tag(.init(title: "Ullamco laboris nisi")),
-                        .tag(.init(title: "Ut aliquip ex ea")),
-                        .tag(.init(title: "Commodo consequat")),
-                        .tag(.init(title: "Duis aute irure")),
-                        .tag(.init(title: "Dolor in reprehenderit")),
-                        .tag(.init(title: "In voluptate velit")),
-                        .tag(.init(title: "Esse cillum dolore")),
-                        .tag(.init(title: "Eu fugiat nulla")),
-                        .tag(.init(title: "Pariatur excepteur sint")),
-                        .tag(.init(title: "Occaecat cupidatat non"))
-                    ]
+                    items: mapTagsData(tags: model.tags)
                 ),
                 .init(
                     type: .itemsGrid,
@@ -84,6 +50,14 @@ final class MainViewDataFactory: MainViewDataFactoryProtocol {
                     )
                 )
             ]
+        )
+    }
+    
+    func createTagsSection(tags: [String]) -> MainViewSectionData {
+        .init(
+            type: .tags,
+            title: nil,
+            items: mapTagsData(tags: tags)
         )
     }
     
@@ -113,6 +87,18 @@ final class MainViewDataFactory: MainViewDataFactoryProtocol {
                     onTouched: { [recommendation] in
                         onItemTouched?(.recommendation(recommendation))
                     }
+                )
+            )
+        }
+    }
+    
+    private func mapTagsData(
+        tags: [String]
+    ) -> [MainViewSectionData.ItemType] {
+        tags.map { tag in
+            MainViewSectionData.ItemType.tag(
+                TagCellItem(
+                    title: tag
                 )
             )
         }

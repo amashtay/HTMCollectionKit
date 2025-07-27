@@ -2,7 +2,7 @@
 //  MainPresenter.swift
 //  HTMCollectionKit
 //
-//  Created by amashtayon 08.07.2025.
+//  Created by amashtay on 08.07.2025.
 //  Copyright © 2025 CocoaPods. All rights reserved.
 //
 
@@ -18,15 +18,18 @@ final class MainPresenter: MainViewOutput, MainModuleIO {
     private var model: MainModel?
     
     private let viewDataFactory: MainViewDataFactoryProtocol
+    private let viewDataUpdater: MainViewDataUpdaterProtocol
     private let interactor: MainInteractorInput
     
     // MARK: - Initializer
     
     init(
         viewDataFactory: MainViewDataFactoryProtocol,
+        viewDataUpdater: MainViewDataUpdaterProtocol,
         interactor: MainInteractorInput
     ) {
         self.viewDataFactory = viewDataFactory
+        self.viewDataUpdater = viewDataUpdater
         self.interactor = interactor
     }
     
@@ -50,8 +53,16 @@ final class MainPresenter: MainViewOutput, MainModuleIO {
                     }
                 }
             )
+            await view?.update(viewData: viewData)
             
-            view?.update(viewData: viewData)
+            try? await Task.sleep(nanoseconds: 4_000_000_000)
+            
+            let newModel = await interactor.appendTags(model: model)
+            self.model = newModel
+            let newTagsSection = viewDataFactory.createTagsSection(tags: newModel.tags)
+            viewData = viewDataUpdater.insertTagsSection(viewData: viewData, tagSection: newTagsSection)
+            
+            await view?.update(viewData: viewData)
         }
     }
 }

@@ -46,10 +46,11 @@ final class MainViewController: UIViewController {
 
 // MARK: - MainViewInput
 extension MainViewController: MainViewInput {
-    func update(viewData: MainViewData) {
+    @MainActor
+    func update(viewData: MainViewData) async {
         self.viewData = viewData
         
-        dataSource.update(with: viewData)
+        await dataSource.update(with: viewData)
     }
 }
 

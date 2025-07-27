@@ -2,7 +2,7 @@
 //  MainModuleBuilder.swift
 //  HTMCollectionKit
 //
-//  Created by amashtayon 08.07.2025.
+//  Created by amashtay on 08.07.2025.
 //  Copyright © 2025 CocoaPods. All rights reserved.
 //
 
@@ -13,6 +13,7 @@ enum MainModuleBuilder {
     static func build() -> MainModule {
         let presenter = MainPresenter(
             viewDataFactory: makeMainViewDataFactory(),
+            viewDataUpdater: makeMainViewDataUpdater(),
             interactor: makeMainInteractor()
         )
         let viewController = MainViewController(
@@ -34,12 +35,17 @@ enum MainModuleBuilder {
             advertService: AdvertService(),
             recommendationsService: RecommendationsService(),
             bannersService: BannersService(),
-            reviewsService: ReviewsService()
+            reviewsService: ReviewsService(),
+            tagsService: TagsService()
         )
     }
     
     private static func makeMainViewDataFactory() -> MainViewDataFactoryProtocol {
         MainViewDataFactory()
+    }
+    
+    private static func makeMainViewDataUpdater() -> MainViewDataUpdaterProtocol {
+        MainViewDataUpdater()
     }
     
     private static func makeCollectionLayoutFactory() -> CollectionLayoutFactoryProtocol {

@@ -2,30 +2,32 @@
 //  MainInteractor.swift
 //  HTMCollectionKit
 //
-//  Created by amashtayon 09.07.2025.
+//  Created by amashtay on 09.07.2025.
 //  Copyright © 2025 CocoaPods. All rights reserved.
 //
 
 import Foundation
 
 final class MainInteractor: MainInteractorInput {
-    
     private let advertService: AdvertServiceProtocol
     private let recommendationsService: RecommendationsServiceProtocol
     private let bannersService: BannersServiceProtocol
     private let reviewsService: ReviewsServiceProtocol
+    private let tagsService: TagsServiceProtocol
     
     // MARK: - Initializer
     init(
         advertService: AdvertServiceProtocol,
         recommendationsService: RecommendationsServiceProtocol,
         bannersService: BannersServiceProtocol,
-        reviewsService: ReviewsServiceProtocol
+        reviewsService: ReviewsServiceProtocol,
+        tagsService: TagsServiceProtocol
     ) {
         self.advertService = advertService
         self.recommendationsService = recommendationsService
         self.bannersService = bannersService
         self.reviewsService = reviewsService
+        self.tagsService = tagsService
     }
     
     // MARK: - MainInteractorInput
@@ -55,7 +57,16 @@ final class MainInteractor: MainInteractorInput {
             description: advert.description,
             recommendations: recommendations,
             banners: banners,
-            reviews: reviews
+            reviews: reviews,
+            tags: []
         )
+    }
+    
+    func appendTags(model: MainModel) async -> MainModel {
+        var result = model
+        let tags = await tagsService.loadTags()
+        result.tags = tags
+        
+        return result
     }
 }

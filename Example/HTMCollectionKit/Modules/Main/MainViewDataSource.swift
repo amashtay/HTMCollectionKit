@@ -2,7 +2,7 @@
 //  MainViewDataSource.swift
 //  HTMCollectionKit
 //
-//  Created by amashtayon 08.07.2025.
+//  Created by amashtay on 08.07.2025.
 //  Copyright © 2025 CocoaPods. All rights reserved.
 //
 
@@ -76,7 +76,7 @@ final class MainViewDataSource: UICollectionViewDiffableDataSource<MainViewSecti
     }
     
     // MARK: Internal
-    func update(with viewData: MainViewData) {
+    func update(with viewData: MainViewData) async {
         let sections = viewData.sections
         
         var snapshot = Snapshot()
@@ -85,7 +85,7 @@ final class MainViewDataSource: UICollectionViewDiffableDataSource<MainViewSecti
             snapshot.appendItems(section.items, toSection: section)
         }
 
-        apply(snapshot, animatingDifferences: true)
+        await apply(snapshot, animatingDifferences: true)
     }
     
     // MARK: Private
