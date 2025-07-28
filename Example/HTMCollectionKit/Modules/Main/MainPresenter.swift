@@ -57,11 +57,10 @@ final class MainPresenter: MainViewOutput, MainModuleIO {
             
             try? await Task.sleep(nanoseconds: 4_000_000_000)
             
-            let newModel = await interactor.appendTags(model: model)
-            self.model = newModel
-            let newTagsSection = viewDataFactory.createTagsSection(tags: newModel.tags)
-            viewData = viewDataUpdater.insertTagsSection(viewData: viewData, tagSection: newTagsSection)
+            let reviews = await interactor.updateReview()
             
+            self.model?.reviews = reviews
+            viewData = viewDataUpdater.updateDescription(viewData: viewData, review: reviews.first?.text ?? "nil")
             await view?.update(viewData: viewData)
         }
     }

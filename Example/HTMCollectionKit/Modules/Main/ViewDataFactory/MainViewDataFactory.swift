@@ -16,6 +16,14 @@ final class MainViewDataFactory: MainViewDataFactoryProtocol {
         MainViewData(
             sections: [
                 .init(
+                    type: .reviews,
+                    title: "REVIEWS",
+                    items: mapReviewsData(
+                        reviews: model.reviews,
+                        onItemTouched: onItemTouched
+                    )
+                ),
+                .init(
                     type: .banners,
                     title: "ADVERTISEMENTS",
                     items: mapBannersData(
@@ -38,14 +46,6 @@ final class MainViewDataFactory: MainViewDataFactoryProtocol {
                     title: "RECOMMENDED",
                     items: mapRecommendationsData(
                         recommendations: model.recommendations,
-                        onItemTouched: onItemTouched
-                    )
-                ),
-                .init(
-                    type: .reviews,
-                    title: "REVIEWS",
-                    items: mapReviewsData(
-                        reviews: model.reviews,
                         onItemTouched: onItemTouched
                     )
                 )

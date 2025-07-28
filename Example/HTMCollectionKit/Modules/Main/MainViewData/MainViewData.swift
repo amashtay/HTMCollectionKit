@@ -32,7 +32,7 @@ struct MainViewSectionData: Hashable {
     let uuid = UUID()
     let type: SectionLayoutType
     let title: String?
-    let items: [ItemType]
+    var items: [ItemType]
     
     // MARK: Hashable
     

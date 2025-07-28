@@ -10,4 +10,5 @@ import Foundation
 
 protocol ReviewsServiceProtocol: AnyObject {
     func loadReviews() async -> [Review]
+    func updateReviews() async -> [Review]
 }

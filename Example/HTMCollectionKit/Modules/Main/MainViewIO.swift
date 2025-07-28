@@ -20,4 +20,5 @@ protocol MainViewOutput: AnyObject {
 protocol MainInteractorInput: AnyObject {
     func loadData() async -> MainModel
     func appendTags(model: MainModel) async -> MainModel
+    func updateReview() async -> [Review] 
 }

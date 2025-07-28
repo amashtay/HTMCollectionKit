@@ -69,4 +69,10 @@ final class MainInteractor: MainInteractorInput {
         
         return result
     }
+    
+    func updateReview() async -> [Review] {
+        let reviews = await reviewsService.updateReviews()
+        
+        return reviews
+    }
 }

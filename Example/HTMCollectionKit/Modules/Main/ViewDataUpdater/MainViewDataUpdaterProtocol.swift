@@ -13,4 +13,9 @@ protocol MainViewDataUpdaterProtocol: AnyObject {
         viewData: MainViewData,
         tagSection: MainViewSectionData
     ) -> MainViewData
+    
+    func updateDescription(
+        viewData: MainViewData,
+        review: String
+    ) -> MainViewData
 }

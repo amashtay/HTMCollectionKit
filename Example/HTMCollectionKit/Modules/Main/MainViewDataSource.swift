@@ -75,6 +75,7 @@ final class MainViewDataSource: UICollectionViewDiffableDataSource<MainViewSecti
         return header
     }
     
+    var isFirstLoading: Bool = true
     // MARK: Internal
     func update(with viewData: MainViewData) async {
         let sections = viewData.sections
@@ -84,6 +85,11 @@ final class MainViewDataSource: UICollectionViewDiffableDataSource<MainViewSecti
         sections.forEach { section in
             snapshot.appendItems(section.items, toSection: section)
         }
+        
+        if !isFirstLoading {
+            snapshot.reconfigureItems([sections[0].items[0]])
+        }
+        isFirstLoading = false
 
         await apply(snapshot, animatingDifferences: true)
     }
